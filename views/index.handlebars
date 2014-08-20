@@ -1,0 +1,127 @@
+<!-- 顶部导航 -->
+<div class="nav">
+    <div id="LoginBox" class="login-box"></div>
+    <span class="toolbar-button-group">
+        <button id="FullscreenButton" data-tip="全屏">
+            <i class="icon icon-fullscreen"></i><span class="des-text">全屏</span>
+        </button><button id="ConfigBtn" data-tip="设置">
+            <i class="icon icon-cog"></i>
+            <span class="des-text">设置</span>
+        </button><button class="btn" id="RotateButton">
+            <i class="icon icon-tag"></i>
+            <span class="des-text">调整宽度</span>
+        </button>
+    </span>
+    <span class="toolbar-button-group">
+        <button id="DelBtn" data-tip="删除(backspace)">
+            <i class="icon icon-trash"></i>
+            <span class="des-text">移除</span>
+        </button><button id="TagBtn" data-tip="显示/隐藏标签(ctrl+i)">
+            <i class="icon icon-tag"></i>
+            <span class="des-text">显示/隐藏标签</span>
+        </button>
+    </span>
+    <span class="toolbar-button-group">
+        <button class="btn" id="PreviewButton">
+            <i class="icon icon-tag"></i>
+            <span class="des-text">预览/设计</span>
+        </button><button class="btn" id="SaveButton">
+            <i class="icon icon-tag"></i>
+            <span class="des-text">保存</span>
+        </button>
+    </span>
+</div>
+<!-- 组件面板 -->
+<div class="left-panel">
+    <h3 class="ui-widget-header">页面列表<i id="AddPageButton" class="add-page-button">+</i></h3>
+    <ul class="page-panel ui-widget-content" id="PagePanel">
+    </ul>
+    <h3 class="ui-widget-header">控件列表</h3>
+    <ul id="ControlsPanel" class="control-panel ui-widget-content"></ul>
+</div>
+<!-- 属性面板 -->
+<div id="PropertiesPanel" class="properties-panel"></div>
+
+<!-- 编辑区 -->
+<div class="viewport">
+    <div class="frame-wrapper">
+        <div class="context-layer" id="ContextLayer"></div>
+        <iframe id="Frame" src="about:blank" class="frame design-frame"></iframe>
+        <iframe id="Preview" src="about:blank" class="frame preview-frame"></iframe>
+        <textarea id="DocumentSource" class="document-source"></textarea><!-- 源文件 -->
+    </div>
+</div>
+<div id="PreviewQrcode" class="preview-qrcode"></div>
+
+<!-- controls 模板开始 -->
+{{#each templates}}
+    <script type="text/x-handlebars-template" id="{{name}}ControlTemplate">
+        {{{content}}}
+    </script>
+{{/each}}
+<!-- controls 模板结束 -->
+
+<!-- editor 模板开始 -->
+{{#each editorTemplates}}
+    <script type="text/x-handlebars-template" id="{{name}}EditorTemplate">
+        {{{content}}}
+    </script>
+{{/each}}
+<!-- editor 模板结束 -->
+<script src="/combo~{{{coreJS}}}"></script>
+
+<script src="/js/define.js"></script>
+<script src="/js/Builder/utils/Bounds.js"></script>
+<script src="/js/Builder/Frame.js"></script>
+<script src="/js/Builder/DDController.js"></script>
+<script src="/js/Builder/Control.js"></script>
+<script src="/js/Builder/PropertiesPanel.js"></script>
+<script src="/js/Builder/ControlCollection.js"></script>
+<script src="/js/Builder/PageCollection.js"></script>
+<script src="/js/Builder/Login.js"></script>
+<script src="/js/Builder/Editor.js"></script>
+<!-- controls js开始 -->
+<script src="/combo~{{{externalFiles.js}}}"></script>
+<!-- controls js结束 -->
+<!-- editors js开始 -->
+<script src="/combo~{{{editorExternalFiles.js}}}"></script>
+<!-- editors js结束 -->
+<script src="/js/Builder/Builder.js"></script>
+<script>
+    exia.use('Builder', function (Builder) {
+        var builder = new Builder('#Frame', '', '#ControlsPanel', '#PropertiesPanel', '#LoginBox'),
+            params = (function () {
+                var str = location.search,
+                    i,
+                    params = {},
+                    param;
+                if (str) {
+                    str = str.substring(1).split('&');
+                    i = str.length;
+                    while (param = str[--i]) {
+                        param = param.split('=')
+                        params[param[0]] = param[1];
+                    }
+                }
+                return params;
+            })();
+
+
+        if (params.id) {
+            $.get('/site', {id : params.id}).done(function (site) {
+                var data = {
+                    id : site.id,
+                    name : site.name,
+                    defaultPage : site.default_page_id
+                };
+                $.get('/pages', {sid : params.id})
+                    .done(function (pages) {
+                        data.pages = pages;
+                        builder.init(data, function () {
+                            console.log(data);
+                        });
+                    });
+            });
+        }
+    });
+</script>

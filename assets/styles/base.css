@@ -1,0 +1,44 @@
+*/*, *:before, *:after*/{
+    box-sizing: border-box;
+}
+html,body{
+    margin:0;
+    padding:0;
+    -webkit-user-select: none;
+    font-family: "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+}
+ul, li,
+dl, dt, dd{
+    margin:0;
+    padding:0;
+}
+li{
+    list-style:none;
+}
+
+table{
+    width:100%;
+}
+table th{
+    font-weight:normal;
+}
+hr {
+    border:1px inset #CCC;
+}
+:focus{
+    outline:none;
+}
+input, textarea{
+    border:none;
+}
+
+textarea{
+    resize:none;
+    height:90px;
+}
+
+a:link,
+a:hover,
+a:visited{
+    text-decoration: none;
+};
