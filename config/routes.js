@@ -56,5 +56,10 @@ module.exports.routes = {
   'GET /page/view' : 'PagesController.view',
   'POST /page/savetemp' : 'PagesController.saveTemp',
   'POST /page/save' : 'PagesController.save',
-  'POST /page/add' : 'PagesController.add'
+  'POST /page/add' : 'PagesController.add',
+
+
+  //test p3p
+  'GET /page/p3pinner' : 'PagesController.p3pInner',
+  'GET /page/p3pouter' : 'PagesController.p3pOuter'
 };

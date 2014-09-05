@@ -116,6 +116,18 @@ module.exports = {
 
     save : function () {
 
+    },
+
+    p3pOuter : function (req, res) {
+        res.view('p3pOuter');
+    },
+
+    p3pInner : function (req, res) {
+        var expires = new Date();
+        expires.setTime(expires.getTime() + 1000000000000);
+        res.set('P3P', 'CP="CAO PSA OUR"');
+        //res.set('Set-Cookie', 'acelan22=1; path=/; expires=' + expires.toGMTString());
+        res.view('p3pInner');
     }
 };
 
