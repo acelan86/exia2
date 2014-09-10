@@ -15,4 +15,3 @@ module.exports = {
         // json_temp : {type : 'text'}
     }
 };
-

@@ -6,6 +6,10 @@ exia.use('Builder.Control', function (Control) {
         template : Handlebars.compile($('#ButtonControlTemplate').html()),
         properties : [
             {
+                name : 'icon',
+                type : 'String',
+            },
+            {
                 name : 'label',
                 type : 'String',
                 pos : 1,
