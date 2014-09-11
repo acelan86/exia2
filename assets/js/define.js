@@ -1,3 +1,6 @@
+/**
+ * 简化的define方法，只是用于简单的模块管理，不负责动态加载文件
+ */
 (function (window, undefined) {
     "use strict";
 
