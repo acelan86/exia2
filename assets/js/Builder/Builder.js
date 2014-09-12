@@ -55,6 +55,7 @@ exia.define('Builder', function (require, exports, module) {
             to : frame,
             accept : '.control-icon'
         });
+        
         this.initDDControllerEvents();
 
         this.propertiesPanel = new PropertiesPanel(propertiesPanel);

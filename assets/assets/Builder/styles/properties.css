@@ -1,0 +1,35 @@
+.properties-panel{
+    position:absolute;
+    right:0px;
+    top:0px;
+    width:250px;
+    border-left:1px solid #ccc;
+    height:100%;
+    overflow-x:hidden;
+    font-size:14px;
+    padding:15px;
+    padding-top: 60px;
+    background-color: #fff;
+}
+.properties-panel label{
+    margin-right: 10px;
+    display:block;
+    line-height: 30px;
+    color:#4D90FE;
+    font-size:12px;
+}
+.property-row{
+    margin-top:20px;
+    clear:both;
+}
+.property-row:first-child{
+    margin-top:0px;
+}
+.property-control{
+}
+.property-control input,
+.property-control textarea{
+    width:100%;
+    border-bottom:1px solid #ccc;
+    line-height:24px;
+}

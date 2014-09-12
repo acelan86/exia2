@@ -1,0 +1,334 @@
+/*!
+ * jQuery UI CSS Framework @VERSION
+ * http://jqueryui.com
+ *
+ * Copyright 2012 jQuery Foundation and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Theming/API
+ *
+ * To view and modify this theme, visit http://jqueryui.com/themeroller/
+ */
+
+
+/* Component containers
+----------------------------------*/
+.ui-widget-header {
+    text-align:center;
+    font-weight: bold;
+    margin:0px;
+    line-height: 25px;
+    padding-top:10px;
+    font-size:12px;
+}
+
+/* Interaction states
+----------------------------------*/
+.ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default {
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select:none;
+    border: 1px solid #4D90FE;
+    background-color:#fff;
+    color:#4D90FE;
+}
+.ui-state-default a,
+.ui-state-default a:link, 
+.ui-state-default a:visited {
+    color: #4D90FE;
+    text-decoration: none;
+}
+
+.ui-state-focus,
+.ui-widget-content .ui-state-focus,
+.ui-widget-header .ui-state-focus{
+    background-color:#e6f1f6;
+    color:#4D90FE;
+
+}
+
+.ui-state-em.ui-state-hover,
+.ui-widget-content .ui-state-em.ui-state-hover,
+.ui-widget-header .ui-state-em.ui-state-hover{
+    background-color: #4D90FE;
+    color:#fff;
+}
+
+.ui-state-hover, 
+.ui-widget-content .ui-state-hover, 
+.ui-widget-header .ui-state-hover,
+.ui-state-active,
+.ui-widget-content .ui-state-active, 
+.ui-widget-header .ui-state-active{
+    color:#fff;
+    background-color:#4D90FE;
+}
+
+.ui-state-em,
+.ui-widget-content .ui-state-em,
+.ui-widget-header .ui-state-em{
+    font-weight:bold;
+ }
+
+.ui-state-selected{
+    color : #4D90FE;
+}
+
+.ui-state-hover a,
+.ui-state-hover a:hover{
+    color:#4D90FE;
+    text-decoration: none;
+}
+.ui-state-active a,
+.ui-state-active a:link,
+.ui-state-active a:visited {
+    color: #cfcfcf;
+    text-decoration: none; 
+}
+.ui-widget :active {
+    outline: none;
+}
+
+/* Icons
+----------------------------------*/
+/*.ui-icon{
+    width:20px;
+    height:20px;
+    font-style: normal;
+    text-indent:0px;
+    font-size:16px;
+    font-weight: normal;
+    line-height: 16px;
+    border:1px solid #4D90FE;
+    border-radius:9999px;
+    color:#4D90FE;
+}*/
+
+/* Corner radius */
+.ui-corner-all,
+.ui-corner-top,
+.ui-corner-left,
+.ui-corner-tl {
+    -webkit-border-top-left-radius: 4px;
+}
+.ui-corner-all,
+.ui-corner-top,
+.ui-corner-right,
+.ui-corner-tr {
+    -webkit-border-top-right-radius: 4px;
+}
+.ui-corner-all,
+.ui-corner-bottom,
+.ui-corner-left,
+.ui-corner-bl {
+    -webkit-border-bottom-left-radius:4px;
+}
+.ui-corner-all,
+.ui-corner-bottom,
+.ui-corner-right,
+.ui-corner-br {
+    -webkit-border-bottom-right-radius:4px;
+}
+
+/**
+ * input
+ */
+.ui-input{
+    padding-left:10px;
+    border-bottom:1px solid #ccc;
+}
+/**
+ * button
+ */
+.ui-button{
+    margin:0;
+}
+
+/* selectmenu */
+.ui-selectmenu-menu{
+    background:#fff;
+    border:1px solid #4D90FE;
+}
+
+
+/* dialog*/
+.ui-dialog{
+    background:#fff;
+    border-radius:5px;
+}
+.ui-dialog-buttonset{
+    border-top:1px solid #ccc;
+    display:-moz-box;
+    display:-webkit-box;
+    display:flex;
+}
+.ui-dialog-buttonset .ui-button{
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    flex: 1;
+    border:none;
+    border-left:1px solid #ccc;
+    font-size:14px;
+    display:block;
+}
+.ui-dialog-buttonset .ui-button-text{
+    line-height:30px;
+}
+.ui-dialog-buttonset .ui-button-first{
+    border-left:none;
+    border-radius:0px 0px 0px 4px;
+}
+.ui-dialog-buttonset .ui-button-last{
+    border-radius:0px 0px 4px 0px;
+}
+.ui-dialog-buttonset .ui-button-first.ui-button-last{
+    border-radius : 0px 0px 4px 4px;
+}
+.ui-dialog-content{
+    padding:15px;
+    line-height:2em;
+    font-size:12px;
+}
+
+.ui-dialog-titlebar-close{
+    position:absolute;
+    right:5px;
+    top:5px;
+    display:none;
+}
+.ui-dialog-buttonpane{
+    margin-top:10px;
+}
+
+.ui-widget-overlay {
+    background: #000;
+    opacity:.6;
+    position:absolute;
+    left:0px;
+    top:0px;
+}
+
+/**
+ * spinner
+ */
+.ui-spinner .ui-input{
+    border:1px solid #ccc;
+    border-right:none;
+}
+.ui-spinner a.ui-spinner-button{
+    border:1px solid #4D90FE;
+    margin:2px 0px;
+    height:13px;
+}
+.ui-spinner .ui-icon{
+    text-indent: 3px;
+    margin-top:-9px;
+}
+.ui-spinner .ui-icon-triangle-1-n{
+    
+}
+.ui-spinner .ui-icon-triangle-1-s{
+    text-indent: 5px;
+}
+/**
+ * slider
+ */
+.ui-slider .ui-slider-handle{
+    width:20px;
+    height:20px;
+    border-radius: 9999px;
+    border:1px solid #ccc;
+}
+.ui-slider{
+    margin:15px 0px;
+}
+.ui-slider .ui-state-active,
+.ui-slider .ui-state-hover{
+    background:#fff;
+}
+
+.ui-slider-horizontal{
+    height:2px;
+    background-color:#4D90FE;
+}
+.ui-slider-horizontal .ui-slider-handle{
+    top: -8px;
+}
+
+/*
+flipswitch
+ */
+.ui-flipswitch{
+    width:50px;
+    height:24px;
+    border-radius:9999px;
+    border-color:#aaa;
+}
+.ui-flipswitch .ui-state-default{
+    border-color:#ccc;
+}
+.ui-flipswitch .ui-btn.ui-flipswitch-on{
+    border-color:#ccc;
+    height:24px;
+    width:24px;
+    margin:0px;
+    margin-left:-1px;
+    margin-top:-1px;
+    text-indent: 9999px;
+}
+.ui-flipswitch.ui-flipswitch-active{
+    padding-left:26px;
+    background-color:#4CD964;
+    border-color:#4CD964;
+    border:none;
+    margin-left:0px;
+}
+.ui-flipswitch-active .ui-btn.ui-flipswitch-on{
+    margin-left:0px;
+    border-color:#4CD964;
+    margin-top: 0px;
+}
+
+
+/**
+ * form
+ */
+.form-row{
+    clear:both;
+    margin-top:10px;
+}
+.form-row:first-child{
+    margin-top: 0;
+}
+.form-row label{
+    display: block;
+    line-height: 30px;
+    color: #4D90FE;
+    font-size: 12px;
+}
+.form-control {
+    background-color : #fff;
+}
+.form-control .ui-input{
+    width:100%;
+    height:25px;
+    border: 1px solid #ccc;
+}
+.form-control textarea{
+    height:100px;
+    width:100%;
+    border:1px solid #ccc;
+    line-height:1.5em;
+}
+
+.form-left-label label{
+    float:left;
+    width:60px;
+}
+.form-left-label .form-control{
+    margin-left:90px;
+}

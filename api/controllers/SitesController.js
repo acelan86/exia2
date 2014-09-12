@@ -41,6 +41,7 @@ module.exports = {
             task = Sites.find();
         }
         task.exec(function (err, result) {
+            console.log(err, result);
             return res.json(result);
         });
     },
