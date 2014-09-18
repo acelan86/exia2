@@ -1,5 +1,6 @@
 define([
-    "hbs!./templates/Button"
+    "hbs!./templates/Button",
+    "css!./styles/Button"
 ], function (template) {
     return {
         icon    : "",

@@ -4,7 +4,7 @@ define([
     "Backbone",
     "observe"
 ], function (_, $, Backbone, observe) {
-
+    
     function Model(cid, type, value) {
         var me = this,
             data = {};

@@ -3,15 +3,16 @@ define([
     "jquery",
     "Backbone",
     "require",
+
     "./frame",
     "./dd",
     "./properties",
+
     "./login",
-    "./controls",
     "./collection",
 
     "css!./styles/main"
-], function (_, $, Backbone, require, frame, dd, properties, login, controls, collection) {
+], function (_, $, Backbone, require, frame, dd, properties, login, collection) {
     "use strict";
 
     function Builder() {
@@ -28,7 +29,7 @@ define([
 
         this.collection = collection;
 
-        this.controls = controls;
+        //this.controls = controls;
 
         this.initFrameEvents();
         this.initDDControllerEvents();
@@ -90,6 +91,14 @@ define([
     //初始化控件拖拽添加事件
     Builder.prototype.initDDControllerEvents = function () {
         var me = this;
+
+        //拖拽过程尝试是否需要滚动和插入占位节点
+        this.ui.dd.on('start', function (e) {
+            var type = $(e.target).data('type');
+            require(['Controls/' + type], function (control) {
+                console.log(control);
+            });
+        });
 
         //拖拽过程尝试是否需要滚动和插入占位节点
         this.ui.dd.on('move', function (e) {
@@ -199,7 +208,7 @@ define([
         this.name = data.name;
         this.defaultPage = data.defaultPage;
         this.pages = data.pages;
-        this.setActivePage(this.defaultPage);
+        //this.setActivePage(this.defaultPage);
 
         //完成加载
         console.log('load data!!', data);

@@ -3,8 +3,6 @@ define([
     "jquery",
     "Backbone",
 
-    "./editors",
-
     "css!./styles/properties"
 ], function (_, $, Backbone) {
     "use strict";

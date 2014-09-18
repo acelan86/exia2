@@ -19,5 +19,6 @@ module.exports.models = {
   ***************************************************************************/
 
   // connection: 'localDiskDb'
-  connection : 'mongodbServer'
+  connection : 'mongodbServer',
+  migrate : 'alter'
 };

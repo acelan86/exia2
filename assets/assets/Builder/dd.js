@@ -3,19 +3,19 @@ define([
     "jquery",
     "Backbone",
     "hbs/handlebars",
-    "./controls",
 
+    "./config",
     "core/jquery/droppable",
     "core/jquery/draggable",
 
     "css!./styles/dd"
-], function (_, $, Backbone, Handlebars, controls) {
+], function (_, $, Backbone, Handlebars, config) {
     "use strict";
 
     var MASK_CLASS = "dd-controller-mask",
         HELPER_CLASS = "dd-helper",
         HELPER_TPL = Handlebars.compile(
-            '<div class="' + HELPER_CLASS + '" style="z-index:1000;border:1px solid #ccc;background-color:#fff;">' +
+            '<div data-type="{{type}}" class="' + HELPER_CLASS + '" style="z-index:1000;border:1px solid #ccc;background-color:#fff;">' +
                 '<i></i>' +
             '</div>'
         ),
@@ -42,16 +42,7 @@ define([
         var me = this;
 
         //拼装左侧的列表
-        (function (controls) {
-            var list = [];
-            for (var type in controls) {
-                list.push({
-                    type : type,
-                    name : controls[type].name
-                });
-            }
-            me.from.html(CONTROL_ICON_TPL(list));
-        })(controls.get());
+        me.from.html(CONTROL_ICON_TPL(config.controlList));
 
         //在frame前面插入辅助拖拽节点
         //拖拽遮罩层，用于防止鼠标时间进入iframe后失去事件导致的拖拽不流畅，防止需要在iframe和外部都写一边拖拽结束代码，同时该层可以用于定位      
@@ -82,7 +73,9 @@ define([
             //当没有正确放置时候是否回退到默认位置
             //revert: 'invalid',
             helper: function (e, ui) {
-                return $(HELPER_TPL({icon : 'https://avatars0.githubusercontent.com/u/174904?v=2&s=40'}));
+                return $(HELPER_TPL({
+                    icon : 'https://avatars0.githubusercontent.com/u/174904?v=2&s=40'
+                }));
                 //return $('<div class="' + HELPER_CLASS + '">').css('zIndex', 1000);
             },
             containment: 'document',
